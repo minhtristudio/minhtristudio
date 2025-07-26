@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executor Menu - Arceus X V5 Style</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <div class="container">
+        <div class="executor-panel">
+            <div class="panel-header">
+                <div class="logo">
+                    <i class="fas fa-bolt"></i>
+                    <h1>Executor X</h1>
+                </div>
+                <div class="status">
+                    <span class="status-dot"></span>
+                    <span>Connected</span>
+                </div>
+            </div>
+
+            <div class="panel-content">
+                <div class="script-area">
+                    <div class="area-header">
+                        <span>Script Editor</span>
+                        <div class="controls">
+                            <button class="btn-icon" title="Clear"><i class="fas fa-trash"></i></button>
+                            <button class="btn-icon" title="Open File"><i class="fas fa-folder-open"></i></button>
+                            <button class="btn-icon" title="Save"><i class="fas fa-save"></i></button>
+                        </div>
+                    </div>
+                    <textarea class="script-editor" placeholder="-- Nhập script của bạn tại đây...&#10;print('Hello World!')"></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary execute-btn">
+                        <i class="fas fa-play"></i>
+                        Execute
+                    </button>
+                    <button class="btn-secondary">
+                        <i class="fas fa-stop"></i>
+                        Stop
+                    </button>
+                    <button class="btn-secondary">
+                        <i class="fas fa-undo"></i>
+                        Clear
+                    </button>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Safe Mode</span>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-rocket"></i>
+                        <span>Fast Execution</span>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <span>Syntax Highlight</span>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud Scripts</span>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <div class="tab active" data-tab="scripts">
+                        <i class="fas fa-file-code"></i>
+                        Scripts
+                    </div>
+                    <div class="tab" data-tab="console">
+                        <i class="fas fa-terminal"></i>
+                        Console
+                    </div>
+                    <div class="tab" data-tab="settings">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-panel active" id="scripts">
+                        <div class="script-list">
+                            <div class="script-item">
+                                <i class="fas fa-file-code"></i>
+                                <span>Auto Farm Script</span>
+                                <button class="btn-small">Load</button>
+                            </div>
+                            <div class="script-item">
+                                <i class="fas fa-file-code"></i>
+                                <span>Speed Hack</span>
+                                <button class="btn-small">Load</button>
+                            </div>
+                            <div class="script-item">
+                                <i class="fas fa-file-code"></i>
+                                <span>Teleport Script</span>
+                                <button class="btn-small">Load</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="console">
+                        <div class="console-output">
+                            <div class="console-line">[INFO] Executor initialized successfully</div>
+                            <div class="console-line">[INFO] Ready to execute scripts</div>
+                            <div class="console-line">[DEBUG] Waiting for user input...</div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="settings">
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <span>Auto-attach on startup</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <span>Enable notifications</span>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <span>Dark theme</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
