@@ -75,10 +75,25 @@ Giao diện được lấy cảm hứng từ Arceus X V5 executor với:
 
 ## 🌐 GitHub Pages Deployment
 
-Website được tự động deploy lên GitHub Pages thông qua GitHub Actions:
+### ⚙️ Cách kích hoạt GitHub Pages:
+
+1. **Vào Repository Settings**:
+   - Đi đến `https://github.com/minhtristudio/minhtristudio/settings/pages`
+   - Hoặc: Repository → Settings → Pages (sidebar trái)
+
+2. **Cấu hình Source**:
+   - **Source**: Chọn `GitHub Actions`
+   - **GitHub Actions workflow**: File đã tạo sẵn `.github/workflows/deploy.yml`
+
+3. **Kích hoạt**:
+   - Click `Save` để lưu cài đặt
+   - GitHub Actions sẽ tự động chạy và deploy website
+
+### 📋 Thông tin deployment:
 - **URL**: [https://minhtristudio.github.io/minhtristudio/](https://minhtristudio.github.io/minhtristudio/)
-- **Auto-deploy**: Mỗi khi push code lên main branch
+- **Auto-deploy**: Mỗi khi push code lên main branch  
 - **Status**: [![Deploy to GitHub Pages](https://github.com/minhtristudio/minhtristudio/actions/workflows/deploy.yml/badge.svg)](https://github.com/minhtristudio/minhtristudio/actions/workflows/deploy.yml)
+- **Settings**: [Repository Pages Settings](https://github.com/minhtristudio/minhtristudio/settings/pages)
 
 ---
 
