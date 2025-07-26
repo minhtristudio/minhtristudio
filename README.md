@@ -73,7 +73,15 @@ Giao diện được lấy cảm hứng từ Arceus X V5 executor với:
 - Console output styling
 - Modern gaming UI aesthetic
 
+## 🌐 GitHub Pages Deployment
+
+Website được tự động deploy lên GitHub Pages thông qua GitHub Actions:
+- **URL**: [https://minhtristudio.github.io/minhtristudio/](https://minhtristudio.github.io/minhtristudio/)
+- **Auto-deploy**: Mỗi khi push code lên main branch
+- **Status**: [![Deploy to GitHub Pages](https://github.com/minhtristudio/minhtristudio/actions/workflows/deploy.yml/badge.svg)](https://github.com/minhtristudio/minhtristudio/actions/workflows/deploy.yml)
+
 ---
 
 **Phát triển bởi**: [minhtristudio](https://github.com/minhtristudio)  
-**Demo**: Mở `index.html` để xem demo trực tiếp
+**GitHub Pages**: [https://minhtristudio.github.io/minhtristudio/](https://minhtristudio.github.io/minhtristudio/)  
+**Demo**: Mở `index.html` để xem demo trực tiếp hoặc truy cập GitHub Pages
