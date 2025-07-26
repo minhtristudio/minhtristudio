@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search - Powered by CDN-V API</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-images"></i>
+                <h1>ImageSearch</h1>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Search</a>
+                <a href="#" class="nav-link">Categories</a>
+                <a href="#" class="nav-link">Trending</a>
+                <a href="#" class="nav-link">About</a>
+            </nav>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <h2>Discover Amazing Images</h2>
+                <p>Search through millions of high-quality images</p>
+                
+                <div class="search-box">
+                    <div class="search-input-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search for images..." autocomplete="off">
+                        <button type="button" id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="search-suggestions" id="suggestions">
+                        <div class="suggestion-item" data-query="nature">Nature</div>
+                        <div class="suggestion-item" data-query="technology">Technology</div>
+                        <div class="suggestion-item" data-query="architecture">Architecture</div>
+                        <div class="suggestion-item" data-query="food">Food</div>
+                        <div class="suggestion-item" data-query="travel">Travel</div>
+                        <div class="suggestion-item" data-query="animals">Animals</div>
+                    </div>
+                </div>
+
+                <div class="search-filters">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="nature">Nature</option>
+                        <option value="technology">Technology</option>
+                        <option value="people">People</option>
+                        <option value="animals">Animals</option>
+                        <option value="architecture">Architecture</option>
+                        <option value="food">Food</option>
+                        <option value="travel">Travel</option>
+                        <option value="business">Business</option>
+                    </select>
+
+                    <select id="orientationFilter" class="filter-select">
+                        <option value="">All Orientations</option>
+                        <option value="horizontal">Horizontal</option>
+                        <option value="vertical">Vertical</option>
+                        <option value="square">Square</option>
+                    </select>
+
+                    <select id="sizeFilter" class="filter-select">
+                        <option value="">All Sizes</option>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                        <option value="xlarge">Extra Large</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+            <p>Searching for images...</p>
+        </div>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection">
+            <div class="results-header">
+                <h3 id="resultsTitle">Search Results</h3>
+                <div class="results-info">
+                    <span id="resultsCount">0 results found</span>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid" title="Grid View">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list" title="List View">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-grid" id="imageGrid">
+                <!-- Images will be dynamically inserted here -->
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Image Modal -->
+        <div class="modal" id="imageModal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <div class="modal-body">
+                    <div class="modal-image-container">
+                        <img id="modalImage" src="" alt="">
+                    </div>
+                    <div class="modal-info">
+                        <h4 id="modalTitle">Image Title</h4>
+                        <p id="modalDescription">Image description</p>
+                        <div class="modal-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Size:</span>
+                                <span id="modalSize">1920x1080</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Type:</span>
+                                <span id="modalType">JPEG</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Tags:</span>
+                                <span id="modalTags">nature, landscape</span>
+                            </div>
+                        </div>
+                        <div class="modal-actions">
+                            <button class="btn btn-primary" id="downloadBtn">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button class="btn btn-secondary" id="shareBtn">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ImageSearch</h4>
+                    <p>Discover and share amazing images from around the world.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>API</h4>
+                    <p>Powered by CDN-V API</p>
+                    <a href="https://cdn-v.atwebpages.com/API/view.php" target="_blank">API Documentation</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ImageSearch. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
