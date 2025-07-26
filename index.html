@@ -1,81 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Search - Powered by CDN-V API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ImageSearch">
+    <title>Tìm Kiếm Hình Ảnh - CDN-V</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23667eea'/><text y='50' font-size='50' text-anchor='middle' x='50' fill='white'>📸</text></svg>">
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        <!-- Mobile Header -->
         <header class="header">
-            <div class="logo">
-                <i class="fas fa-images"></i>
-                <h1>ImageSearch</h1>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-images"></i>
+                    <h1>ImageSearch</h1>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <nav class="nav">
-                <a href="#" class="nav-link active">Search</a>
-                <a href="#" class="nav-link">Categories</a>
-                <a href="#" class="nav-link">Trending</a>
-                <a href="#" class="nav-link">About</a>
+            <nav class="nav" id="mobileNav">
+                <a href="#" class="nav-link active" data-section="search">
+                    <i class="fas fa-search"></i>
+                    <span>Tìm kiếm</span>
+                </a>
+                <a href="#" class="nav-link" data-section="categories">
+                    <i class="fas fa-th-large"></i>
+                    <span>Danh mục</span>
+                </a>
+                <a href="#" class="nav-link" data-section="trending">
+                    <i class="fas fa-fire"></i>
+                    <span>Thịnh hành</span>
+                </a>
+                <a href="#" class="nav-link" data-section="about">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Giới thiệu</span>
+                </a>
             </nav>
         </header>
 
         <!-- Search Section -->
         <section class="search-section">
             <div class="search-container">
-                <h2>Discover Amazing Images</h2>
-                <p>Search through millions of high-quality images</p>
+                <h2>Khám Phá Hình Ảnh Tuyệt Đẹp</h2>
+                <p>Tìm kiếm trong hàng triệu hình ảnh chất lượng cao từ CDN-V</p>
                 
                 <div class="search-box">
                     <div class="search-input-container">
                         <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="searchInput" placeholder="Search for images..." autocomplete="off">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm hình ảnh..." autocomplete="off">
                         <button type="button" id="searchBtn" class="search-btn">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
                     
                     <div class="search-suggestions" id="suggestions">
-                        <div class="suggestion-item" data-query="nature">Nature</div>
-                        <div class="suggestion-item" data-query="technology">Technology</div>
-                        <div class="suggestion-item" data-query="architecture">Architecture</div>
-                        <div class="suggestion-item" data-query="food">Food</div>
-                        <div class="suggestion-item" data-query="travel">Travel</div>
-                        <div class="suggestion-item" data-query="animals">Animals</div>
+                        <div class="suggestion-item" data-query="thiên nhiên">Thiên nhiên</div>
+                        <div class="suggestion-item" data-query="công nghệ">Công nghệ</div>
+                        <div class="suggestion-item" data-query="kiến trúc">Kiến trúc</div>
+                        <div class="suggestion-item" data-query="ẩm thực">Ẩm thực</div>
+                        <div class="suggestion-item" data-query="du lịch">Du lịch</div>
+                        <div class="suggestion-item" data-query="động vật">Động vật</div>
                     </div>
                 </div>
 
                 <div class="search-filters">
-                    <select id="categoryFilter" class="filter-select">
-                        <option value="">All Categories</option>
-                        <option value="nature">Nature</option>
-                        <option value="technology">Technology</option>
-                        <option value="people">People</option>
-                        <option value="animals">Animals</option>
-                        <option value="architecture">Architecture</option>
-                        <option value="food">Food</option>
-                        <option value="travel">Travel</option>
-                        <option value="business">Business</option>
-                    </select>
+                    <div class="filter-group">
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">Tất cả danh mục</option>
+                            <option value="nature">Thiên nhiên</option>
+                            <option value="technology">Công nghệ</option>
+                            <option value="people">Con người</option>
+                            <option value="animals">Động vật</option>
+                            <option value="architecture">Kiến trúc</option>
+                            <option value="food">Ẩm thực</option>
+                            <option value="travel">Du lịch</option>
+                            <option value="business">Kinh doanh</option>
+                        </select>
+                    </div>
 
-                    <select id="orientationFilter" class="filter-select">
-                        <option value="">All Orientations</option>
-                        <option value="horizontal">Horizontal</option>
-                        <option value="vertical">Vertical</option>
-                        <option value="square">Square</option>
-                    </select>
+                    <div class="filter-group">
+                        <select id="orientationFilter" class="filter-select">
+                            <option value="">Tất cả hướng</option>
+                            <option value="horizontal">Ngang</option>
+                            <option value="vertical">Dọc</option>
+                            <option value="square">Vuông</option>
+                        </select>
+                    </div>
 
-                    <select id="sizeFilter" class="filter-select">
-                        <option value="">All Sizes</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="xlarge">Extra Large</option>
-                    </select>
+                    <div class="filter-group">
+                        <select id="sizeFilter" class="filter-select">
+                            <option value="">Tất cả kích thước</option>
+                            <option value="small">Nhỏ</option>
+                            <option value="medium">Trung bình</option>
+                            <option value="large">Lớn</option>
+                            <option value="xlarge">Rất lớn</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Quick Categories for Mobile -->
+                <div class="quick-categories">
+                    <div class="category-chip" data-category="nature">
+                        <i class="fas fa-leaf"></i>
+                        <span>Thiên nhiên</span>
+                    </div>
+                    <div class="category-chip" data-category="technology">
+                        <i class="fas fa-laptop"></i>
+                        <span>Công nghệ</span>
+                    </div>
+                    <div class="category-chip" data-category="food">
+                        <i class="fas fa-utensils"></i>
+                        <span>Ẩm thực</span>
+                    </div>
+                    <div class="category-chip" data-category="travel">
+                        <i class="fas fa-plane"></i>
+                        <span>Du lịch</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -83,23 +132,77 @@
         <!-- Loading Spinner -->
         <div class="loading-spinner" id="loadingSpinner">
             <div class="spinner"></div>
-            <p>Searching for images...</p>
+            <p>Đang tìm kiếm hình ảnh...</p>
         </div>
 
         <!-- Results Section -->
         <section class="results-section" id="resultsSection">
             <div class="results-header">
-                <h3 id="resultsTitle">Search Results</h3>
-                <div class="results-info">
-                    <span id="resultsCount">0 results found</span>
+                <div class="results-title-section">
+                    <h3 id="resultsTitle">Kết quả tìm kiếm</h3>
+                    <span id="resultsCount">0 kết quả</span>
+                </div>
+                <div class="results-controls">
                     <div class="view-toggle">
-                        <button class="view-btn active" data-view="grid" title="Grid View">
+                        <button class="view-btn active" data-view="grid" title="Lưới">
                             <i class="fas fa-th"></i>
                         </button>
-                        <button class="view-btn" data-view="list" title="List View">
+                        <button class="view-btn" data-view="list" title="Danh sách">
                             <i class="fas fa-list"></i>
                         </button>
                     </div>
+                    <button class="filter-toggle" id="filterToggle" title="Bộ lọc">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Filter Panel -->
+            <div class="mobile-filter-panel" id="mobileFilterPanel">
+                <div class="filter-panel-header">
+                    <h4>Bộ lọc</h4>
+                    <button class="close-filter-panel" id="closeFilterPanel">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="filter-panel-content">
+                    <div class="mobile-filter-group">
+                        <label>Danh mục</label>
+                        <select id="mobileCategoryFilter" class="mobile-filter-select">
+                            <option value="">Tất cả danh mục</option>
+                            <option value="nature">Thiên nhiên</option>
+                            <option value="technology">Công nghệ</option>
+                            <option value="people">Con người</option>
+                            <option value="animals">Động vật</option>
+                            <option value="architecture">Kiến trúc</option>
+                            <option value="food">Ẩm thực</option>
+                            <option value="travel">Du lịch</option>
+                            <option value="business">Kinh doanh</option>
+                        </select>
+                    </div>
+                    <div class="mobile-filter-group">
+                        <label>Hướng ảnh</label>
+                        <select id="mobileOrientationFilter" class="mobile-filter-select">
+                            <option value="">Tất cả hướng</option>
+                            <option value="horizontal">Ngang</option>
+                            <option value="vertical">Dọc</option>
+                            <option value="square">Vuông</option>
+                        </select>
+                    </div>
+                    <div class="mobile-filter-group">
+                        <label>Kích thước</label>
+                        <select id="mobileSizeFilter" class="mobile-filter-select">
+                            <option value="">Tất cả kích thước</option>
+                            <option value="small">Nhỏ</option>
+                            <option value="medium">Trung bình</option>
+                            <option value="large">Lớn</option>
+                            <option value="xlarge">Rất lớn</option>
+                        </select>
+                    </div>
+                    <button class="apply-filters-btn" id="applyFilters">
+                        <i class="fas fa-check"></i>
+                        Áp dụng bộ lọc
+                    </button>
                 </div>
             </div>
 
@@ -107,42 +210,74 @@
                 <!-- Images will be dynamically inserted here -->
             </div>
 
+            <!-- Mobile Pagination -->
             <div class="pagination" id="pagination">
                 <!-- Pagination will be inserted here -->
+            </div>
+
+            <!-- Load More Button for Mobile -->
+            <div class="load-more-container" id="loadMoreContainer">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-plus-circle"></i>
+                    Tải thêm
+                </button>
             </div>
         </section>
 
         <!-- Image Modal -->
         <div class="modal" id="imageModal">
             <div class="modal-content">
-                <span class="close-btn" id="closeModal">&times;</span>
+                <div class="modal-header">
+                    <span class="close-btn" id="closeModal">&times;</span>
+                </div>
                 <div class="modal-body">
                     <div class="modal-image-container">
                         <img id="modalImage" src="" alt="">
+                        <div class="image-controls">
+                            <button class="control-btn" id="zoomInBtn" title="Phóng to">
+                                <i class="fas fa-search-plus"></i>
+                            </button>
+                            <button class="control-btn" id="zoomOutBtn" title="Thu nhỏ">
+                                <i class="fas fa-search-minus"></i>
+                            </button>
+                            <button class="control-btn" id="resetZoomBtn" title="Đặt lại">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="modal-info">
-                        <h4 id="modalTitle">Image Title</h4>
-                        <p id="modalDescription">Image description</p>
+                        <h4 id="modalTitle">Tiêu đề ảnh</h4>
+                        <p id="modalDescription">Mô tả ảnh</p>
                         <div class="modal-details">
                             <div class="detail-item">
-                                <span class="detail-label">Size:</span>
+                                <span class="detail-label">Kích thước:</span>
                                 <span id="modalSize">1920x1080</span>
                             </div>
                             <div class="detail-item">
-                                <span class="detail-label">Type:</span>
+                                <span class="detail-label">Định dạng:</span>
                                 <span id="modalType">JPEG</span>
                             </div>
                             <div class="detail-item">
-                                <span class="detail-label">Tags:</span>
-                                <span id="modalTags">nature, landscape</span>
+                                <span class="detail-label">Thẻ:</span>
+                                <span id="modalTags">thiên nhiên, phong cảnh</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Nguồn:</span>
+                                <span id="modalSource">CDN-V</span>
                             </div>
                         </div>
                         <div class="modal-actions">
                             <button class="btn btn-primary" id="downloadBtn">
-                                <i class="fas fa-download"></i> Download
+                                <i class="fas fa-download"></i>
+                                <span>Tải xuống</span>
                             </button>
                             <button class="btn btn-secondary" id="shareBtn">
-                                <i class="fas fa-share"></i> Share
+                                <i class="fas fa-share"></i>
+                                <span>Chia sẻ</span>
+                            </button>
+                            <button class="btn btn-outline" id="copyLinkBtn">
+                                <i class="fas fa-link"></i>
+                                <span>Sao chép link</span>
                             </button>
                         </div>
                     </div>
@@ -150,32 +285,68 @@
             </div>
         </div>
 
+        <!-- Mobile Bottom Navigation -->
+        <div class="mobile-bottom-nav" id="mobileBottomNav">
+            <a href="#" class="bottom-nav-item active" data-section="search">
+                <i class="fas fa-search"></i>
+                <span>Tìm kiếm</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-section="categories">
+                <i class="fas fa-th-large"></i>
+                <span>Danh mục</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-section="trending">
+                <i class="fas fa-fire"></i>
+                <span>Thịnh hành</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-section="about">
+                <i class="fas fa-info-circle"></i>
+                <span>Về chúng tôi</span>
+            </a>
+        </div>
+
         <!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>ImageSearch</h4>
-                    <p>Discover and share amazing images from around the world.</p>
+                    <p>Khám phá và chia sẻ hình ảnh tuyệt đẹp từ khắp nơi trên thế giới.</p>
                 </div>
                 <div class="footer-section">
                     <h4>API</h4>
-                    <p>Powered by CDN-V API</p>
-                    <a href="https://cdn-v.atwebpages.com/API/view.php" target="_blank">API Documentation</a>
+                    <p>Được hỗ trợ bởi CDN-V API</p>
+                    <a href="https://cdn-v.atwebpages.com/API/view.php" target="_blank">Tài liệu API</a>
                 </div>
                 <div class="footer-section">
-                    <h4>Connect</h4>
+                    <h4>Kết nối</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 ImageSearch. All rights reserved.</p>
+                <p>&copy; 2024 ImageSearch. Tất cả quyền được bảo lưu.</p>
             </div>
         </footer>
+
+        <!-- Toast Container -->
+        <div class="toast-container" id="toastContainer"></div>
+
+        <!-- PWA Install Prompt -->
+        <div class="pwa-install-prompt" id="pwaInstallPrompt">
+            <div class="pwa-content">
+                <i class="fas fa-mobile-alt"></i>
+                <div class="pwa-text">
+                    <h4>Cài đặt ứng dụng</h4>
+                    <p>Thêm ImageSearch vào màn hình chính để truy cập nhanh</p>
+                </div>
+                <button class="pwa-install-btn" id="pwaInstallBtn">Cài đặt</button>
+                <button class="pwa-close-btn" id="pwaCloseBtn">&times;</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

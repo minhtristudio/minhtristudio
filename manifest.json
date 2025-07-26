@@ -1,0 +1,69 @@
+{
+  "name": "ImageSearch - Tìm Kiếm Hình Ảnh",
+  "short_name": "ImageSearch",
+  "description": "Ứng dụng tìm kiếm và khám phá hình ảnh tuyệt đẹp từ CDN-V",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%23667eea' rx='24'/><path d='M48 72h96v48H48z' fill='white' opacity='0.9'/><circle cx='128' cy='96' r='8' fill='%23667eea'/><path d='M64 112l16-16 16 16 24-24 16 16v16H64z' fill='%23667eea'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%23667eea' rx='64'/><path d='M128 192h256v128H128z' fill='white' opacity='0.9'/><circle cx='320' cy='256' r='20' fill='%23667eea'/><path d='M160 288l40-40 40 40 64-64 48 48v32H160z' fill='%23667eea'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["photography", "utilities", "entertainment"],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 390 844'><rect width='390' height='844' fill='%23f8f9fa'/><rect width='390' height='80' fill='%23667eea'/><text x='195' y='50' text-anchor='middle' fill='white' font-size='20' font-family='Arial'>ImageSearch</text><rect x='20' y='100' width='350' height='200' fill='%23e9ecef' rx='12'/><text x='195' y='210' text-anchor='middle' fill='%23666' font-size='16' font-family='Arial'>Tìm kiếm hình ảnh...</text></svg>",
+      "sizes": "390x844",
+      "type": "image/svg+xml",
+      "form_factor": "narrow",
+      "label": "Giao diện tìm kiếm chính"
+    }
+  ],
+  "features": [
+    "Cross Platform",
+    "Fast",
+    "Simple"
+  ],
+  "shortcuts": [
+    {
+      "name": "Tìm kiếm nhanh",
+      "short_name": "Tìm kiếm",
+      "description": "Tìm kiếm hình ảnh nhanh chóng",
+      "url": "/?action=search",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><circle cx='48' cy='48' r='48' fill='%23667eea'/><path d='M40 32c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8m0-4c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12z' fill='white'/></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Thịnh hành",
+      "short_name": "Trending",
+      "description": "Xem hình ảnh thịnh hành",
+      "url": "/?action=trending",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><circle cx='48' cy='48' r='48' fill='%23f39c12'/><path d='M48 20l6 18h18l-14 11 5 18-15-11-15 11 5-18-14-11h18z' fill='white'/></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}
