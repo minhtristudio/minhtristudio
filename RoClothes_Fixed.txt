@@ -14003,6 +14003,12 @@ function RoClothes(Player)
 	GUIObject.MainFrame.BackgroundTransparency = 1
 
 	GUIObject.Dragger.Parent = GUIObject.MainFrame
+	
+	-- Cấu hình UIDragDetector cho trải nghiệm tốt hơn
+	GUIObject.Dragger.ApplyAtCenter = true
+	GUIObject.Dragger.BoundingBehavior = Enum.BoundingBehavior.NoRecloning
+	GUIObject.Dragger.MinDistance = 5 -- Khoảng cách tối thiểu để bắt đầu kéo
+	GUIObject.Dragger.ResponseStyle = Enum.ResponseStyle.Immediate
 
 	GUIObject.PageFrame.Name = "PageFrame"
 	GUIObject.PageFrame.Parent = GUIObject.MainFrame
