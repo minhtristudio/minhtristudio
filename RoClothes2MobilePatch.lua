@@ -4,7 +4,16 @@
 
 do
     local Players = game:GetService("Players")
-    local player = Players.LocalPlayer or Players:GetPropertyChangedSignal("LocalPlayer"):Wait() and Players.LocalPlayer
+    -- Bảo đảm LocalPlayer đã có sẵn (fix lỗi nil khi chạy quá sớm)
+    local player = Players.LocalPlayer
+    if not player then
+        Players:GetPropertyChangedSignal("LocalPlayer"):Wait()
+        player = Players.LocalPlayer
+    end
+    if not player then
+        warn("[RoClothesModern] LocalPlayer vẫn nil – script đợi thêm...")
+        repeat task.wait() player = Players.LocalPlayer until player
+    end
     local gui = player:WaitForChild("PlayerGui")
 
     -- Hide legacy GUI
@@ -68,6 +77,12 @@ do
     local layout = Instance.new("UIListLayout", content)
     layout.Padding = UDim.new(0, 6)
 
+    local function recalc()
+        content.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 10)
+    end
+    layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(recalc)
+    task.defer(recalc)
+
     local function add(text, cb)
         local b = Instance.new("TextButton", content)
         b.Size = UDim2.new(1, 0, 0, 36)
@@ -78,6 +93,7 @@ do
         b.Font = Enum.Font.Gotham
         Instance.new("UICorner", b).CornerRadius = UDim.new(0, 8)
         b.MouseButton1Click:Connect(cb)
+        return b
     end
 
     add("Open Legacy UI", function()
@@ -89,4 +105,15 @@ do
         if old then old:Destroy() end
         if oldBtn then oldBtn:Destroy() end
     end)
+
+    add("Toggle Legacy Visibility", function()
+        if old then
+            old.Enabled = not old.Enabled
+        end
+        if oldBtn then
+            oldBtn.Enabled = old and old.Enabled
+        end
+    end)
+
+    recalc()
 end
